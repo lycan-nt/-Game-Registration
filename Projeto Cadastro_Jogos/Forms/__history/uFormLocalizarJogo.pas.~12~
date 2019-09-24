@@ -1,0 +1,136 @@
+unit uFormLocalizarJogo;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, uFormLocalizarPai, Data.DB,
+  FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Param,
+  FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf, FireDAC.DApt.Intf,
+  FireDAC.Stan.Async, FireDAC.DApt, FireDAC.Comp.DataSet, System.ImageList,
+  Vcl.ImgList, FireDAC.Comp.Client, Vcl.Grids, Vcl.DBGrids, Vcl.StdCtrls,
+  Vcl.ExtCtrls, AdvToolBar, uDmLoockup, Vcl.DBCtrls, Vcl.Imaging.pngimage;
+
+type
+  TFormLocalizarJogo = class(TFormLocalizarPai)
+    FDQueryLocalizarnome: TStringField;
+    FDQueryLocalizarImagen: TBlobField;
+    FDQueryLocalizardata_lancamento: TDateField;
+    FDQueryLocalizarfk_desenvolvedor: TIntegerField;
+    FDQueryLocalizarid_jogo: TFDAutoIncField;
+    FDQueryLocalizarcaminho: TStringField;
+    FDQueryLocalizarfk_id_genero: TIntegerField;
+    FDQueryLocalizarfk_id_genero1: TIntegerField;
+    FDQueryLocalizarfk_id_genero2: TIntegerField;
+    FDQueryLocalizardescricao: TStringField;
+    Label3: TLabel;
+    EdtGenero: TEdit;
+    procedure FormCreate(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure Image1Click(Sender: TObject);
+    procedure EdtLocalizaCodigoKeyPress(Sender: TObject; var Key: Char);
+    procedure EdtLocalizaNomeKeyPress(Sender: TObject; var Key: Char);
+  private
+    { Private declarations }
+
+   Procedure FiltrarJogos;
+
+  public
+    { Public declarations }
+  end;
+
+var
+  FormLocalizarJogo: TFormLocalizarJogo;
+
+implementation
+
+{$R *.dfm}
+
+procedure TFormLocalizarJogo.EdtLocalizaCodigoKeyPress(Sender: TObject;
+  var Key: Char);
+begin
+  inherited;
+
+     FiltrarJogos;
+
+end;
+
+procedure TFormLocalizarJogo.EdtLocalizaNomeKeyPress(Sender: TObject;
+  var Key: Char);
+begin
+  inherited;
+
+     FiltrarJogos;
+
+end;
+
+procedure TFormLocalizarJogo.FiltrarJogos;
+begin
+
+     FDQueryLocalizar.Close;
+     FDQueryLocalizar.SQL.Clear;
+     FDQueryLocalizar.SQL.Add('select * from jogo');
+     FDQueryLocalizar.SQL.Add('where 1=1');
+
+     if EdtLocalizaCodigo.Text <> '' then
+       begin
+
+            FDQueryLocalizar.SQL.Add('And id_jogo =' + EdtLocalizaCodigo.Text);
+
+       end;
+
+     if EdtLocalizaNome.Text <> '' then
+       begin
+
+            FDQueryLocalizar.SQL.Add('And nome like ' + QuotedStr( '%' + EdtLocalizaNome.Text + '%' ));
+
+       end;
+
+     if EdtGenero.Text <> '' then
+       begin
+
+
+
+       end;
+
+
+
+     FDQueryLocalizar.Open();
+     FDQueryLocalizar.FetchAll;
+
+
+end;
+
+procedure TFormLocalizarJogo.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  inherited;
+
+     Action := CaFree;
+
+end;
+
+procedure TFormLocalizarJogo.FormCreate(Sender: TObject);
+begin
+  inherited;
+
+     //Abre a query localizar e carrega todos os items da mesma
+     FDQueryLocalizar.Open();
+     FDQueryLocalizar.FetchAll;
+
+     //Carrega os items de compartilhamento da query genero
+     DmLoockup.FDQueryGenero.Open;
+     DmLoockup.FDQueryGenero.FetchAll;
+
+
+end;
+
+procedure TFormLocalizarJogo.Image1Click(Sender: TObject);
+begin
+  inherited;
+
+     FiltrarJogos;
+
+end;
+
+end.

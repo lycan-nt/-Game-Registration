@@ -1,0 +1,154 @@
+unit uMenuPrincipal;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.CategoryButtons, uFormCadastroJogo,
+  uCadastroJogos, Vcl.Imaging.jpeg, Vcl.ExtCtrls, uFormCadastroGenero,
+  uFormCadastroDesenvolvedores, uFormLocalizarJogo, uFormLocalizarGenero,
+  uFormLocalizarDesenvolvedor, uFormConf;
+
+type
+  TFormGame = class(TForm)
+    CategoryButtons1: TCategoryButtons;
+    Image1: TImage;
+    procedure CategoryButtons1Categories0Items0Click(Sender: TObject);
+    procedure CategoryButtons1Categories0Items1Click(Sender: TObject);
+    procedure CategoryButtons1Categories0Items2Click(Sender: TObject);
+    procedure CategoryButtons1Categories1Items0Click(Sender: TObject);
+    procedure CategoryButtons1Categories1Items1Click(Sender: TObject);
+
+    procedure CategoryButtons1Categories2Items2Click(Sender: TObject);
+    procedure CategoryButtons1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FormGame: TFormGame;
+
+implementation
+
+{$R *.dfm}
+
+procedure TFormGame.CategoryButtons1Categories0Items0Click(Sender: TObject);
+begin
+
+
+     FormCadastroJogos := TFormCadastroJogos.Create(Self);
+
+     try
+
+
+        FormCadastroJogos.Show;
+
+     finally
+
+
+
+     end;
+
+
+end;
+
+procedure TFormGame.CategoryButtons1Categories0Items1Click(Sender: TObject);
+begin
+
+     FormCadastroGenero := TFormCadastroGenero.Create(Self);
+
+     try
+
+        FormCadastroGenero.Show;
+
+     finally
+
+
+     end;
+
+end;
+
+procedure TFormGame.CategoryButtons1Categories0Items2Click(Sender: TObject);
+begin
+
+     FormCadastroDesenvolvedores := TFormCadastroDesenvolvedores.Create(Self);
+
+     try
+
+        FormCadastroDesenvolvedores.Show;
+
+     finally
+
+     end;
+
+end;
+
+procedure TFormGame.CategoryButtons1Categories1Items0Click(Sender: TObject);
+begin
+
+     FormLocalizarJogo := TFormLocalizarJogo.Create(Self);
+
+     try
+
+        FormLocalizarJogo.Show;
+
+     finally
+
+       
+     end;
+
+end;
+
+procedure TFormGame.CategoryButtons1Categories1Items1Click(Sender: TObject);
+begin
+
+     FormLocalizarGenero := TFormLocalizarGenero.Create(Self);
+
+     Try
+
+        FormLocalizarGenero.Show;
+
+     Finally
+
+
+     End;
+
+end;
+
+procedure TFormGame.CategoryButtons1Categories2Items2Click(Sender: TObject);
+begin
+
+     FormLocalizarDesenvolvedores := TFormLocalizarDesenvolvedores.Create(Self) ;
+
+     try
+
+        FormLocalizarDesenvolvedores.Show;
+
+     finally
+
+     end;
+
+end;
+
+procedure TFormGame.CategoryButtons1Click(Sender: TObject);
+begin
+     FormConf := TFormConf.Create(Self);
+
+     try
+
+        FormConf.ShowModal;
+
+     finally
+
+        FreeAndNil(FormConf);
+
+     end;
+
+end;
+
+end.
+
+
+

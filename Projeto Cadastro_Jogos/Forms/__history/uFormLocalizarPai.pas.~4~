@@ -1,0 +1,40 @@
+unit uFormLocalizarPai;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, uDM, Data.DB, FireDAC.Stan.Intf,
+  FireDAC.Stan.Option, FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS,
+  FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt,
+  Vcl.StdCtrls, Vcl.ExtCtrls, System.ImageList, Vcl.ImgList,
+  FireDAC.Comp.DataSet, FireDAC.Comp.Client, Vcl.Grids, Vcl.DBGrids, AdvToolBar,
+  Vcl.Imaging.pngimage;
+
+type
+  TFormLocalizarPai = class(TForm)
+    AdvToolBarPager1: TAdvToolBarPager;
+    AdvToolBarPager11: TAdvPage;
+    DBGrid1: TDBGrid;
+    FDQueryLocalizar: TFDQuery;
+    DsLocalizar: TDataSource;
+    EdtLocalizaCodigo: TEdit;
+    Label1: TLabel;
+    EdtLocalizaNome: TEdit;
+    Label2: TLabel;
+    ImageList1: TImageList;
+    Image1: TImage;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FormLocalizarPai: TFormLocalizarPai;
+
+implementation
+
+{$R *.dfm}
+
+end.

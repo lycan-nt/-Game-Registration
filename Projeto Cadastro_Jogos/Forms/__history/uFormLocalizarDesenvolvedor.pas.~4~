@@ -1,0 +1,75 @@
+unit uFormLocalizarDesenvolvedor;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, uFormLocalizarPai, Data.DB,
+  FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Param,
+  FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf, FireDAC.DApt.Intf,
+  FireDAC.Stan.Async, FireDAC.DApt, System.ImageList, Vcl.ImgList,
+  FireDAC.Comp.DataSet, FireDAC.Comp.Client, Vcl.Grids, Vcl.DBGrids,
+  Vcl.StdCtrls, Vcl.Imaging.pngimage, Vcl.ExtCtrls, AdvToolBar;
+
+type
+  TFormLocalizarDesenvolvedores = class(TFormLocalizarPai)
+    FDQueryLocalizarnome: TStringField;
+    FDQueryLocalizarid_desenvolvedor: TFDAutoIncField;
+
+    procedure FormShow(Sender: TObject);
+  private
+    { Private declarations }
+
+         Procedure Filtrar;
+
+  public
+    { Public declarations }
+  end;
+
+var
+  FormLocalizarDesenvolvedores: TFormLocalizarDesenvolvedores;
+
+implementation
+
+{$R *.dfm}
+
+procedure TFormLocalizarDesenvolvedores.Filtrar;
+begin
+
+     FDQueryLocalizar.Close;
+     FDQueryLocalizar.SQL.Clear;
+     FDQueryLocalizar.SQL.Add('select * from desenvolvedor');
+     FDQueryLocalizar.SQL.Add('where 1=1');
+
+     if EdtLocalizaCodigo.Text <> '' then
+       begin
+
+            FDQueryLocalizar.SQL.Add('And id_desenvolvedor =' + QuotedStr(EdtLocalizaCodigo.Text));
+
+       end;
+
+     if EdtLocalizaNome.Text <> '' then
+       begin
+
+            FDQueryLocalizar.SQL.Add('And Upper(Trim(nome)) like ' + QuotedSTR(UpperCase(Trim('%'+ EdtLocalizaNome.Text +'%'))));
+
+       end;
+
+     FDQueryLocalizar.Open();
+     FDQueryLocalizar.FetchAll;
+
+
+end;
+
+procedure TFormLocalizarDesenvolvedores.FormShow(Sender: TObject);
+begin
+  inherited;
+
+     FDQueryLocalizar.Open();
+     FDQueryLocalizar.FetchAll;
+
+end;
+
+end.
+
+

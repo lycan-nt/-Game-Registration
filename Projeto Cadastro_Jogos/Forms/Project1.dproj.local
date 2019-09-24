@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2018/07/18 17:19:55.000.086,=C:\Users\Felipe D. Santos\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2018/07/18 17:43:55.000.963,=C:\Users\Felipe D. Santos\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2018/07/19 10:15:57.000.945,=C:\Users\Felipe D. Santos\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2018/07/23 11:00:28.000.345,=C:\Users\Felipe D. Santos\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2018/11/06 14:17:25.000.597,=C:\Users\Felipe D. Santos\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2018/11/06 14:18:58.000.995,C:\Users\Felipe D. Santos\Documents\Embarcadero\Studio\Projects\Unit1.pas=C:\Users\Felipe D. Santos\Desktop\Estudo Felipe\Delph_2018\Projeto Cadastro_Jogos\Forms\uMenuPrincipal.pas</Transaction>
+    <Transaction>2018/11/06 14:18:58.000.995,C:\Users\Felipe D. Santos\Documents\Embarcadero\Studio\Projects\Unit1.dfm=C:\Users\Felipe D. Santos\Desktop\Estudo Felipe\Delph_2018\Projeto Cadastro_Jogos\Forms\uMenuPrincipal.dfm</Transaction>
+    <Transaction>2018/11/06 14:19:52.000.438,C:\Users\Felipe D. Santos\Documents\Embarcadero\Studio\Projects\Project1.dproj=C:\Users\Felipe D. Santos\Desktop\Estudo Felipe\Delph_2018\Projeto Cadastro_Jogos\Forms\Project1.dproj</Transaction>
+    <Transaction>2018/11/06 15:51:48.000.378,=C:\Users\Felipe D. Santos\Desktop\Estudo Felipe\Delph_2018\Projeto Cadastro_Jogos\Forms\Unit1.pas</Transaction>
+    <Transaction>2018/11/06 15:52:47.000.496,C:\Users\Felipe D. Santos\Desktop\Estudo Felipe\Delph_2018\Projeto Cadastro_Jogos\Forms\Unit1.dfm=C:\Users\Felipe D. Santos\Desktop\Estudo Felipe\Delph_2018\Projeto Cadastro_Jogos\Forms\uFormCadastroPai.dfm</Transaction>
+    <Transaction>2018/11/06 15:52:47.000.496,C:\Users\Felipe D. Santos\Desktop\Estudo Felipe\Delph_2018\Projeto Cadastro_Jogos\Forms\Unit1.pas=C:\Users\Felipe D. Santos\Desktop\Estudo Felipe\Delph_2018\Projeto Cadastro_Jogos\Forms\uFormCadastroPai.pas</Transaction>
+    <Transaction>2018/11/06 16:10:10.000.168,=C:\Users\Felipe D. Santos\Desktop\Estudo Felipe\Delph_2018\Projeto Cadastro_Jogos\Forms\Unit1.pas</Transaction>
+    <Transaction>2018/11/06 16:10:50.000.020,C:\Users\Felipe D. Santos\Desktop\Estudo Felipe\Delph_2018\Projeto Cadastro_Jogos\Forms\Unit1.pas=C:\Users\Felipe D. Santos\Desktop\Estudo Felipe\Delph_2018\Projeto Cadastro_Jogos\DATA BASE\uDM.pas</Transaction>
+    <Transaction>2018/11/06 16:10:50.000.020,C:\Users\Felipe D. Santos\Desktop\Estudo Felipe\Delph_2018\Projeto Cadastro_Jogos\Forms\Unit1.dfm=C:\Users\Felipe D. Santos\Desktop\Estudo Felipe\Delph_2018\Projeto Cadastro_Jogos\DATA BASE\uDM.dfm</Transaction>
+    <Transaction>2018/11/06 16:17:17.000.024,=C:\Users\Felipe D. Santos\Desktop\Estudo Felipe\Delph_2018\Projeto Cadastro_Jogos\Forms\Unit1.pas</Transaction>
+    <Transaction>2018/11/06 16:20:31.000.460,=C:\Users\Felipe D. Santos\Desktop\Estudo Felipe\Delph_2018\Projeto Cadastro_Jogos\Forms\Unit1.pas</Transaction>
+    <Transaction>2018/11/06 16:21:58.000.233,C:\Users\Felipe D. Santos\Desktop\Estudo Felipe\Delph_2018\Projeto Cadastro_Jogos\Forms\Unit1.dfm=C:\Users\Felipe D. Santos\Desktop\Estudo Felipe\Delph_2018\Projeto Cadastro_Jogos\Forms\uFormCadastroJogo.dfm</Transaction>
+    <Transaction>2018/11/06 16:21:58.000.233,C:\Users\Felipe D. Santos\Desktop\Estudo Felipe\Delph_2018\Projeto Cadastro_Jogos\Forms\Unit1.pas=C:\Users\Felipe D. Santos\Desktop\Estudo Felipe\Delph_2018\Projeto Cadastro_Jogos\Forms\uFormCadastroJogo.pas</Transaction>
+    <Transaction>2018/11/06 16:46:04.000.691,C:\Users\Felipe D. Santos\Desktop\Estudo Felipe\Delph_2018\Projeto Cadastro_Jogos\Forms\uFormCadastroJogo.pas=</Transaction>
+    <Transaction>2018/11/06 16:46:10.000.307,C:\Users\Felipe D. Santos\Desktop\Estudo Felipe\Delph_2018\Projeto Cadastro_Jogos\Forms\uFormCadastroPai.pas=</Transaction>
+    <Transaction>2018/11/08 10:48:58.000.761,=C:\Users\Felipe D. Santos\Desktop\Estudo Felipe\Delph_2018\Projeto Cadastro_Jogos\Forms\Unit1.pas</Transaction>
+    <Transaction>2018/11/08 10:54:32.000.030,C:\Users\Felipe D. Santos\Desktop\Estudo Felipe\Delph_2018\Projeto Cadastro_Jogos\Forms\uFormCadastroPai.pas=C:\Users\Felipe D. Santos\Desktop\Estudo Felipe\Delph_2018\Projeto Cadastro_Jogos\Forms\Unit1.pas</Transaction>
+    <Transaction>2018/11/08 10:54:32.000.030,C:\Users\Felipe D. Santos\Desktop\Estudo Felipe\Delph_2018\Projeto Cadastro_Jogos\Forms\uFormCadastroPai.dfm=C:\Users\Felipe D. Santos\Desktop\Estudo Felipe\Delph_2018\Projeto Cadastro_Jogos\Forms\Unit1.dfm</Transaction>
+    <Transaction>2018/11/08 10:56:21.000.054,=C:\Users\Felipe D. Santos\Desktop\Estudo Felipe\Delph_2018\Projeto Cadastro_Jogos\Forms\Unit1.pas</Transaction>
+    <Transaction>2018/11/08 10:57:03.000.257,C:\Users\Felipe D. Santos\Desktop\Estudo Felipe\Delph_2018\Projeto Cadastro_Jogos\Forms\uCadastroJogos.dfm=C:\Users\Felipe D. Santos\Desktop\Estudo Felipe\Delph_2018\Projeto Cadastro_Jogos\Forms\Unit1.dfm</Transaction>
+    <Transaction>2018/11/08 10:57:03.000.257,C:\Users\Felipe D. Santos\Desktop\Estudo Felipe\Delph_2018\Projeto Cadastro_Jogos\Forms\uCadastroJogos.pas=C:\Users\Felipe D. Santos\Desktop\Estudo Felipe\Delph_2018\Projeto Cadastro_Jogos\Forms\Unit1.pas</Transaction>
+    <Transaction>2018/11/10 11:36:49.000.172,=I:\Delph_2018\Projeto Cadastro_Jogos\Forms\Unit1.pas</Transaction>
+    <Transaction>2018/11/10 11:37:35.000.518,I:\Delph_2018\Projeto Cadastro_Jogos\Forms\uFormCadastroGenero.dfm=I:\Delph_2018\Projeto Cadastro_Jogos\Forms\Unit1.dfm</Transaction>
+    <Transaction>2018/11/10 11:37:35.000.518,I:\Delph_2018\Projeto Cadastro_Jogos\Forms\uFormCadastroGenero.pas=I:\Delph_2018\Projeto Cadastro_Jogos\Forms\Unit1.pas</Transaction>
+    <Transaction>2018/11/12 10:24:24.000.615,=I:\Delph_2018\Projeto Cadastro_Jogos\Forms\Unit1.pas</Transaction>
+    <Transaction>2018/11/12 10:25:08.000.277,I:\Delph_2018\Projeto Cadastro_Jogos\Forms\Unit1.dfm=I:\Delph_2018\Projeto Cadastro_Jogos\Forms\uFormCadastroDesenvolvedores.dfm</Transaction>
+    <Transaction>2018/11/12 10:25:08.000.277,I:\Delph_2018\Projeto Cadastro_Jogos\Forms\Unit1.pas=I:\Delph_2018\Projeto Cadastro_Jogos\Forms\uFormCadastroDesenvolvedores.pas</Transaction>
+    <Transaction>2018/11/12 10:51:36.000.444,=I:\Delph_2018\Projeto Cadastro_Jogos\Forms\Unit1.pas</Transaction>
+    <Transaction>2018/11/12 10:52:14.000.563,I:\Delph_2018\Projeto Cadastro_Jogos\Forms\Unit1.dfm=I:\Delph_2018\Projeto Cadastro_Jogos\DATA BASE\uDmLoockup.dfm</Transaction>
+    <Transaction>2018/11/12 10:52:14.000.563,I:\Delph_2018\Projeto Cadastro_Jogos\Forms\Unit1.pas=I:\Delph_2018\Projeto Cadastro_Jogos\DATA BASE\uDmLoockup.pas</Transaction>
+    <Transaction>2018/11/17 08:03:41.000.073,=I:\Delph_2018\Projeto Cadastro_Jogos\Forms\Unit1.pas</Transaction>
+    <Transaction>2018/11/17 08:12:21.000.674,I:\Delph_2018\Projeto Cadastro_Jogos\Forms\Unit1.dfm=I:\Delph_2018\Projeto Cadastro_Jogos\Forms\uFormGD.dfm</Transaction>
+    <Transaction>2018/11/17 08:12:21.000.674,I:\Delph_2018\Projeto Cadastro_Jogos\Forms\Unit1.pas=I:\Delph_2018\Projeto Cadastro_Jogos\Forms\uFormGD.pas</Transaction>
+    <Transaction>2018/11/19 16:18:48.000.872,=I:\Delph_2018\Projeto Cadastro_Jogos\Forms\Unit1.pas</Transaction>
+    <Transaction>2018/11/19 16:18:52.000.558,=I:\Delph_2018\Projeto Cadastro_Jogos\Forms\Unit2.pas</Transaction>
+    <Transaction>2018/11/19 16:19:42.000.976,=I:\Delph_2018\Projeto Cadastro_Jogos\Forms\Unit1.pas</Transaction>
+    <Transaction>2018/11/19 16:56:07.000.754,I:\Delph_2018\Projeto Cadastro_Jogos\Forms\Unit1.pas=I:\Delph_2018\Projeto Cadastro_Jogos\Forms\uFormLocalizarPai.pas</Transaction>
+    <Transaction>2018/11/19 16:56:07.000.754,I:\Delph_2018\Projeto Cadastro_Jogos\Forms\Unit1.dfm=I:\Delph_2018\Projeto Cadastro_Jogos\Forms\uFormLocalizarPai.dfm</Transaction>
+    <Transaction>2018/11/19 17:37:10.000.054,=I:\Delph_2018\Projeto Cadastro_Jogos\Forms\Unit1.pas</Transaction>
+    <Transaction>2018/11/19 17:39:51.000.561,I:\Delph_2018\Projeto Cadastro_Jogos\Forms\Unit1.dfm=I:\Delph_2018\Projeto Cadastro_Jogos\Forms\uFormLocalizarJogo.dfm</Transaction>
+    <Transaction>2018/11/19 17:39:51.000.561,I:\Delph_2018\Projeto Cadastro_Jogos\Forms\Unit1.pas=I:\Delph_2018\Projeto Cadastro_Jogos\Forms\uFormLocalizarJogo.pas</Transaction>
+    <Transaction>2018/11/27 16:20:28.000.904,=I:\Delph_2018\Projeto Cadastro_Jogos\Forms\Unit1.pas</Transaction>
+    <Transaction>2018/11/27 16:22:26.000.214,I:\Delph_2018\Projeto Cadastro_Jogos\Forms\uFormLocalizarGenero.pas=I:\Delph_2018\Projeto Cadastro_Jogos\Forms\Unit1.pas</Transaction>
+    <Transaction>2018/11/27 16:22:26.000.214,I:\Delph_2018\Projeto Cadastro_Jogos\Forms\uFormLocalizarGenero.dfm=I:\Delph_2018\Projeto Cadastro_Jogos\Forms\Unit1.dfm</Transaction>
+    <Transaction>2018/11/27 17:26:33.000.132,=I:\Delph_2018\Projeto Cadastro_Jogos\Forms\Unit1.pas</Transaction>
+    <Transaction>2018/11/27 17:27:43.000.527,I:\Delph_2018\Projeto Cadastro_Jogos\Forms\uFormLocalizarDesenvolvedor.dfm=I:\Delph_2018\Projeto Cadastro_Jogos\Forms\Unit1.dfm</Transaction>
+    <Transaction>2018/11/27 17:27:43.000.527,I:\Delph_2018\Projeto Cadastro_Jogos\Forms\uFormLocalizarDesenvolvedor.pas=I:\Delph_2018\Projeto Cadastro_Jogos\Forms\Unit1.pas</Transaction>
+    <Transaction>2018/12/03 11:21:16.000.200,=I:\Delph_2018\Projeto Cadastro_Jogos\Forms\Unit1.pas</Transaction>
+    <Transaction>2018/12/03 11:35:36.000.359,I:\Delph_2018\Projeto Cadastro_Jogos\Forms\Unit1.pas=I:\Delph_2018\Projeto Cadastro_Jogos\Forms\uFormConf.pas</Transaction>
+    <Transaction>2018/12/03 11:35:36.000.359,I:\Delph_2018\Projeto Cadastro_Jogos\Forms\Unit1.dfm=I:\Delph_2018\Projeto Cadastro_Jogos\Forms\uFormConf.dfm</Transaction>
+  </Transactions>
+</BorlandProject>

@@ -1,0 +1,274 @@
+unit uFormLocalizarJogo;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, uFormLocalizarPai, Data.DB,
+  FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Param,
+  FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf, FireDAC.DApt.Intf,
+  FireDAC.Stan.Async, FireDAC.DApt, FireDAC.Comp.DataSet, System.ImageList,
+  Vcl.ImgList, FireDAC.Comp.Client, Vcl.Grids, Vcl.DBGrids, Vcl.StdCtrls,
+  Vcl.ExtCtrls, AdvToolBar, uDmLoockup, Vcl.DBCtrls, Vcl.Imaging.pngimage, uDM,
+  uCadastroJogos;
+
+type
+  TFormLocalizarJogo = class(TFormLocalizarPai)
+    Label3: TLabel;
+    EdtGenero: TEdit;
+    FDQueryLocalizaGenero: TFDQuery;
+    FDQueryLocalizaGeneronome: TStringField;
+    FDQueryLocalizaGeneroid_genero: TFDAutoIncField;
+    FDQueryLocalizaGenerofk_id_genero: TIntegerField;
+    FDQueryLocalizaGenerofk_id_genero1: TIntegerField;
+    FDQueryLocalizaGenerofk_id_genero2: TIntegerField;
+    FDQueryLocalizaGeneronome_1: TStringField;
+    FDQueryLocalizaGeneroid_jogo: TFDAutoIncField;
+    FDQueryLocalizarnome: TStringField;
+    FDQueryLocalizarid_genero: TFDAutoIncField;
+    FDQueryLocalizarfk_id_genero: TIntegerField;
+    FDQueryLocalizarfk_id_genero1: TIntegerField;
+    FDQueryLocalizarfk_id_genero2: TIntegerField;
+    FDQueryLocalizarjogo_nome: TStringField;
+    FDQueryLocalizarid_jogo: TFDAutoIncField;
+    FDQueryLocalizardata_lancamento: TDateField;
+    procedure FormCreate(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure Image1Click(Sender: TObject);
+    procedure EdtLocalizaCodigoKeyPress(Sender: TObject; var Key: Char);
+    procedure EdtLocalizaNomeKeyPress(Sender: TObject; var Key: Char);
+    procedure EdtGeneroKeyPress(Sender: TObject; var Key: Char);
+    procedure DBGrid1DblClick(Sender: TObject);
+  private
+    { Private declarations }
+
+   Procedure FiltrarJogos;
+
+  public
+    { Public declarations }
+  end;
+
+var
+  FormLocalizarJogo: TFormLocalizarJogo;
+
+implementation
+
+{$R *.dfm}
+
+procedure TFormLocalizarJogo.DBGrid1DblClick(Sender: TObject);
+begin
+  inherited;
+
+
+     {Cria o formulario em tempo de execusão}
+     FormCadastrojogos := TFormCadastroJogos.Create(Self);
+
+     try
+
+        {Aponta no banco o registro clicado para abrir o formulario nele}
+        FormCadastroJogos.FDQueryCadastro.Locate('id_jogo', FDQueryLocalizarid_jogo.AsInteger, []);
+
+        {Abre e carrega todos os arquivos da tabela}
+        FormCadastroJogos.FDQueryCadastro.Open();
+        FormCadastroJogos.FDQueryCadastro.FetchAll;
+
+
+        if FormCadastroJogos.FDQueryCadastrodescricao.Text <> '' then
+          begin
+
+                 FormCadastroJogos.descrição.Text := FormCadastroJogos.FDQueryCadastrodescricao.Text;
+
+          end
+
+          else
+           begin
+
+                FormCadastroJogos.descrição.Text := 'Descrição';
+
+           end;
+
+        if FormCadastroJogos.FDQueryCadastrodata_lancamento.Value > 0 then
+          begin
+
+               FormCadastroJogos.DateTimePicker1.Date := FormCadastroJogos.FDQueryCadastrodata_lancamento.Value;
+
+          end;
+
+        if FormCadastroJogos.FDQueryCadastrocaminho.Value <> '' then
+          begin
+
+               FormCadastroJogos.OpenPictureDialog1.FileName := FormCadastroJogos.FDQueryCadastrocaminho.Value;
+               FormCadastroJogos.Image1.Picture.LoadFromFile(FormCadastroJogos.OpenPictureDialog1.FileName);
+
+          end
+
+          else
+        if FormCadastroJogos.FDQueryCadastrocaminho.Value = '' then
+           begin
+
+                  FormCadastroJogos.OpenPictureDialog1.FileName := 'C:\Projeto Cadastro_Jogos\Imagens\Cadastro\sem-foto.jpg';
+                  FormCadastroJogos.Image1.Picture.LoadFromFile(FormCadastroJogos.OpenPictureDialog1.FileName);
+
+           end;
+
+         //Verifica se no banco de dados tem genero inserido se tiver tras o campo se não esconde
+        if FormCadastroJogos.FDQueryCadastrofk_id_genero1.Value > 0 then
+          begin
+
+            FormCadastroJogos.DBLookupComboBox3.Visible := True;
+            FormCadastroJogos.Button2.Visible := True;
+
+          end
+
+          else
+              begin
+
+                FormCadastroJogos.DBLookupComboBox3.Visible := False;
+                FormCadastroJogos.Button2.Visible := False;
+
+              end;
+
+
+      //Verifica se no banco de dados tem genero inserido se tiver tras o campo se não esconde
+        if FormCadastroJogos.FDQueryCadastrofk_id_genero2.Value > 0 then
+          begin
+
+            FormCadastroJogos.DBLookupComboBox4.Visible := True;
+
+
+        end
+
+           else
+               begin
+
+                FormCadastroJogos.DBLookupComboBox4.Visible := False;
+
+                end;
+
+
+
+        FormCadastroJogos.Show;
+
+     finally
+
+
+
+     end;
+
+end;
+
+procedure TFormLocalizarJogo.EdtGeneroKeyPress(Sender: TObject; var Key: Char);
+begin
+  inherited;
+
+     FiltrarJogos;
+
+end;
+
+procedure TFormLocalizarJogo.EdtLocalizaCodigoKeyPress(Sender: TObject;
+  var Key: Char);
+begin
+  inherited;
+
+     FiltrarJogos;
+
+end;
+
+procedure TFormLocalizarJogo.EdtLocalizaNomeKeyPress(Sender: TObject;
+  var Key: Char);
+begin
+  inherited;
+
+     FiltrarJogos;
+
+end;
+
+procedure TFormLocalizarJogo.FiltrarJogos;
+begin
+
+     {Fecha a query, faz a limpesa e emseguida inicia o select da consulta usando
+     uma junção entre as tabelas
+     }
+     FDQueryLocalizar.Close;
+     FDQueryLocalizar.SQL.Clear;
+     FDQueryLocalizar.SQL.Add('select g.nome,');
+     FDQueryLocalizar.SQL.Add('g.id_genero,');
+     FDQueryLocalizar.SQL.Add('j.fk_id_genero,');
+     FDQueryLocalizar.SQL.Add('j.fk_id_genero1,');
+     FDQueryLocalizar.SQL.Add('j.fk_id_genero2,');
+     FDQueryLocalizar.SQL.Add('j.jogo_nome,');
+     FDQueryLocalizar.SQL.Add('j.id_jogo,');
+     FDQueryLocalizar.SQL.Add('j.data_lancamento');
+     FDQueryLocalizar.SQL.Add('from jogo j inner join genero g ');
+     FDQueryLocalizar.SQL.Add('on j.fk_id_genero = g.id_genero');
+     FDQueryLocalizar.SQL.Add('where 1=1');
+
+
+     {Se ouver algo digitado no edite de codigo iniciar a consulta buscando os campos
+     onde o codigo no banco de dados for igual ao digitado}
+     if EdtLocalizaCodigo.Text <> '' then
+       begin
+
+            FDQueryLocalizar.SQL.Add('And id_jogo =' + EdtLocalizaCodigo.Text);
+
+       end;
+
+     {Se ouver algo digitado no edite de nome inicia a consulta no banco onde
+     o nome digitado for igual ao do banco de dados}
+     if EdtLocalizaNome.Text <> '' then
+       begin
+
+            FDQueryLocalizar.SQL.Add('And Upper(Trim(j.jogo_nome)) like ' + QuotedStr( '%' + UpperCase(Trim(EdtLocalizaNome.Text)) + '%' ));
+
+       end;
+
+     {Se ouver algo digitado no genero inicia a consulta na busca dos dados onde
+     o genero digitado for igual ao do banco de dados}
+     if EdtGenero.text <> '' then
+       begin
+
+            FDQueryLocalizar.SQL.Add('And g.nome like' + QuotedStr('%' + EdtGenero.Text + '%'));
+
+       end;
+
+     {Abre e em seguida carrega todos os campos da query}
+     FDQueryLocalizar.Open();
+     FDQueryLocalizar.FetchAll;
+
+
+end;
+
+procedure TFormLocalizarJogo.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  inherited;
+
+     {Ao fechar a aplicação libera da memoria}
+     Action := CaFree;
+
+end;
+
+procedure TFormLocalizarJogo.FormCreate(Sender: TObject);
+begin
+  inherited;
+
+     //Abre a query localizar e carrega todos os items da mesma
+     FDQueryLocalizar.Open();
+     FDQueryLocalizar.FetchAll;
+
+     //Carrega os items de compartilhamento da query genero
+     DmLoockup.FDQueryGenero.Open;
+     DmLoockup.FDQueryGenero.FetchAll;
+
+
+end;
+
+procedure TFormLocalizarJogo.Image1Click(Sender: TObject);
+begin
+  inherited;
+
+     FiltrarJogos;
+
+end;
+
+end.

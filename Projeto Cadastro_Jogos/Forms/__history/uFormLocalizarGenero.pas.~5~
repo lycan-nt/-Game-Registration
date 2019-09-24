@@ -1,0 +1,84 @@
+unit uFormLocalizarGenero;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, uFormLocalizarPai, Data.DB,
+  FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Param,
+  FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf, FireDAC.DApt.Intf,
+  FireDAC.Stan.Async, FireDAC.DApt, System.ImageList, Vcl.ImgList,
+  FireDAC.Comp.DataSet, FireDAC.Comp.Client, Vcl.Grids, Vcl.DBGrids,
+  Vcl.StdCtrls, Vcl.Imaging.pngimage, Vcl.ExtCtrls, AdvToolBar;
+
+type
+  TFormLocalizarGenero = class(TFormLocalizarPai)
+    FDQueryLocalizarnome: TStringField;
+    FDQueryLocalizarid_genero: TFDAutoIncField;
+    procedure FormCreate(Sender: TObject);
+    procedure Image1Click(Sender: TObject);
+  private
+    { Private declarations }
+
+    procedure Filtrar;
+
+  public
+    { Public declarations }
+  end;
+
+var
+  FormLocalizarGenero: TFormLocalizarGenero;
+
+implementation
+
+{$R *.dfm}
+
+procedure TFormLocalizarGenero.Filtrar;
+begin
+
+     FDQueryLocalizar.Close;
+     FDQueryLocalizar.SQL.Clear;
+     FDQueryLocalizar.SQL.Add('Select * from genero');
+     FDQueryLocalizar.SQL.Add('where 1=1');
+
+     if EdtLocalizaCodigo.Text <> '' then
+       begin
+
+            FDQueryLocalizar.SQL.Add('And id_genero =' + QuotedStr(EdtLocalizaCodigo.Text));
+
+       end;
+
+     if EdtLocalizaNome.Text <> '' then
+       begin
+
+            FDQueryLocalizar.SQL.Add('And upper(Trim(nome)) like' + QuotedStr(UpperCase(Trim('%' + EdtLocalizaNome.Text + '%'))));
+
+       end;
+
+
+     FDQueryLocalizar.Open();
+     FDQueryLocalizar.FetchAll;
+
+
+
+end;
+
+procedure TFormLocalizarGenero.FormCreate(Sender: TObject);
+begin
+  inherited;
+
+     //Abre e Localiza todos os dados da query
+     FDQueryLocalizar.Open();
+     FDQueryLocalizar.FetchAll;
+
+end;
+
+procedure TFormLocalizarGenero.Image1Click(Sender: TObject);
+begin
+  inherited;
+
+     Filtrar;
+
+end;
+
+end.

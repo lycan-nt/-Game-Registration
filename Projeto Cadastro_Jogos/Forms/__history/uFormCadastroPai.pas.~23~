@@ -1,0 +1,153 @@
+unit uFormCadastroPai;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, uDM, FireDAC.Stan.Intf,
+  FireDAC.Stan.Option, FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS,
+  FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt,
+  Data.DB, FireDAC.Comp.DataSet, FireDAC.Comp.Client, Vcl.ExtCtrls, Vcl.DBCtrls,
+  AdvToolBar, AdvGlowButton, Vcl.StdCtrls;
+
+type
+  TFormCadastroPai = class(TForm)
+    AdvToolBarPager1: TAdvToolBarPager;
+    AdvToolBarPager11: TAdvPage;
+    FDQueryCadastro: TFDQuery;
+    DsCadastro: TDataSource;
+    AdvToolBar1: TAdvToolBar;
+    AdvGlowButton1: TAdvGlowButton;
+    BtnSalvar: TAdvGlowButton;
+    AdvToolBarSeparator1: TAdvToolBarSeparator;
+    AdvToolBar2: TAdvToolBar;
+    BtnAnterior: TAdvGlowButton;
+    BtnProximo: TAdvGlowButton;
+    AdvToolBarSeparator2: TAdvToolBarSeparator;
+    BtnUltimo: TAdvGlowButton;
+    AdvToolBarSeparator3: TAdvToolBarSeparator;
+    BtnPrimeiro: TAdvGlowButton;
+    AdvToolBarSeparator4: TAdvToolBarSeparator;
+    BtnCancelar: TAdvGlowButton;
+    AdvToolBarSeparator5: TAdvToolBarSeparator;
+    BtnExcluir: TAdvGlowButton;
+    AdvToolBarSeparator6: TAdvToolBarSeparator;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure AdvGlowButton1Click(Sender: TObject);
+    procedure BtnSalvarClick(Sender: TObject);
+    procedure BtnAnteriorClick(Sender: TObject);
+    procedure BtnProximoClick(Sender: TObject);
+    procedure BtnUltimoClick(Sender: TObject);
+    procedure BtnPrimeiroClick(Sender: TObject);
+    procedure BtnCancelarClick(Sender: TObject);
+    procedure BtnExcluirClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FormCadastroPai: TFormCadastroPai;
+
+implementation
+
+{$R *.dfm}
+
+procedure TFormCadastroPai.AdvGlowButton1Click(Sender: TObject);
+begin
+
+     if not( FDQueryCadastro.State in [dsEdit, dsInsert] )  then
+       begin
+
+            FDQueryCadastro.Insert;
+
+       end;
+
+
+end;
+
+procedure TFormCadastroPai.BtnAnteriorClick(Sender: TObject);
+begin
+
+     FDQueryCadastro.Prior;
+
+end;
+
+procedure TFormCadastroPai.BtnCancelarClick(Sender: TObject);
+begin
+
+     //Evento para efetuar cancelamento e mostrar a mensagem de confirmação
+
+     if FDQueryCadastro.State in [dsEdit, dsInsert] then
+       begin
+
+            if application.MessageBox('Deseja cancelar o cadastro?', 'Confirmação', mb_IconQuestion+mb_YesNo)= idyes  then
+              begin
+
+                   FDQueryCadastro.Cancel;
+
+              end;
+
+
+       end;
+end;
+
+procedure TFormCadastroPai.BtnExcluirClick(Sender: TObject);
+begin
+
+     if Application.MessageBox('Deseja Excluir o Cadastro? ', 'Confirmação', mb_IconQuestion+mb_yesNo) = idyes then
+       begin
+
+            //Deleta o registro
+            FDQueryCadastro.Delete;
+
+            ShowMessage('Cadastro Removido!')
+
+       end;
+end;
+
+procedure TFormCadastroPai.BtnPrimeiroClick(Sender: TObject);
+begin
+
+     //Vai para o primeiro registro
+     FDQueryCadastro.First;
+
+end;
+
+procedure TFormCadastroPai.BtnProximoClick(Sender: TObject);
+begin
+
+     //Vai para o proximo registro
+     FDQueryCadastro.Next;
+
+end;
+
+procedure TFormCadastroPai.BtnSalvarClick(Sender: TObject);
+begin
+
+     if FDQueryCadastro.State in [dsEdit, dsInsert] then
+       begin
+
+            FDQueryCadastro.Post;
+
+       end;
+
+end;
+
+procedure TFormCadastroPai.BtnUltimoClick(Sender: TObject);
+begin
+
+     //Vai para o ultimo registro
+     FDQueryCadastro.Last;
+
+end;
+
+procedure TFormCadastroPai.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+
+     Action := CaFree;
+
+end;
+
+end.

@@ -1,0 +1,5 @@
+object DmLoockup: TDmLoockup
+  OldCreateOrder = False
+  Height = 324
+  Width = 547
+end
